@@ -1,8 +1,18 @@
-import logo from "./logo.svg";
+import { useEffect } from "react";
 import "./App.css";
+import axios from "axios";
 
 function App() {
-  return <div className="App">hello worlf</div>;
+  useEffect(() => {
+    fetchCharacters();
+  }, []);
+
+  const fetchCharacters = async () => {
+    const apiUrl = 'http://localhost:80/character'
+    const result = await axios.get(apiUrl);
+    console.log(result)
+  };
+  return <div className="App">hello world</div>;
 }
 
 export default App;
